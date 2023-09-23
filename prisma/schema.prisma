@@ -15,17 +15,15 @@ model Article {
   title     String
   content   String
   createdAt DateTime  @default(now())
-//  updatedAt DateTime  @updatedAt
   author    User      @relation(fields: [authorId], references: [id])
   authorId  Int
-//  tags      Tag[]
 }
 
 // Define the User model (for authors)
 model User {
   id        Int      @id @default(autoincrement())
   username  String   @unique
-//  email     String   @unique
+  email     String   @unique
   password  String
   articles  Article[]
 }
